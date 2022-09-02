@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ post.title }}</title>
+</head>
+<body>
+Здравствуй, {{ first_name }} {{ last_name }}. <br/>
+<br/>
+Пришел отзыв на объявление в категории {{ category }}!<br/>
+<br/>
+Ваше объявление:<br/>
+<br/>
+{{ announce.title }} <br/>
+{{ announce.text }} <br/>
+<a href="{% url 'post_detail' announce.id %}">View</a>
+<br/>
+Отзыв:<br/>
+<br/>
+{{ feedback.user.full_name }}<br/>
+{{ feedback.text }}<br/>
+<a href="{% url 'feedback_detail' feedback.id %}">View</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+ 
+{% block title %} Feedback {% endblock title %}
+ 
+{% block content %}
+<table border="1" cellpadding="10">
+    <tr>
+         <td>
+             <h4>{{ feedback.announce.author|title }}, {{ feedback.announce.time_in|date:'d M Y' }}</h4>
+        </td>
+        <td>
+            <h4>{{ feedback.announce.title|title }}</h4>
+        </td>
+    </tr><tr>
+    <tr>
+         <td>
+             <h4>{{ feedback.user|title }}, {{ feedback.time_in|date:'d M Y' }}</h4>
+        </td>
+        <td>
+            <h4>{{ feedback.text|censor }}</h4>
+        </td>
+</table>
+<a href="/board/">Вернуться к общему списку</a>
+{% endblock content %}
+
+

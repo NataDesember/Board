@@ -1,0 +1,34 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+ 
+{% block title %} Announce list {% endblock title %}
+ 
+{% block content %}
+<h2>Вы действительно хотите удалить данное объявление?</h2>
+<table>
+    <thead>
+        <th> Author </th>
+        <th> Title </th>
+        <th> Text </th>
+        <th> Category </th>
+    </thead>
+    <tr>
+        <td>
+            {{ announce.author|title }}
+        </td>
+        <td>
+            {{ announce.title|title }}
+        </td>
+        <td>
+            {{ announce.text }}
+        </td>
+        <td>
+                {{ announce.category }}
+        </td>
+    </tr>
+</table>
+ 
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %} 

@@ -1,0 +1,18 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load cache %}
+
+{% cache 30 title %}
+{% block title %}
+Article
+{% endblock title %}
+{% endcache %}
+
+{% cache 30 content %}
+{% block content %}
+<h2>{{ announce.title|censor }}</h2>
+<font size="-1">{{ announce.time_in|date:'d M Y' }}</font>
+<br/><br/>
+{{ announce.text|censor }}
+{% endblock content %}
+{% endcache %}

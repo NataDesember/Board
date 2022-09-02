@@ -1,0 +1,22 @@
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+ 
+{% block title %} Feedback {% endblock title %}
+ 
+{% block content %}
+<h2>Вы действительно хотите удалить отклик?</h2>
+<table>
+    <thead>
+        <th> Text </th>
+    </thead>
+    <tr>
+        <td>
+            {{ feedback.text }}
+        </td>
+    </tr>
+</table>
+ 
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %} 
